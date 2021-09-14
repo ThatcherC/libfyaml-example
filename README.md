@@ -33,3 +33,24 @@ make
 ```
 
 and you should see the version number of the `libfyaml` library.
+
+### Non-Docker
+
+If you'd rather install `libfyaml` on your computer rather than in a Docker
+environment, the docs recommend these steps, which are also encoded in the Dockerfile:
+
+Install dependencies:
+```
+sudo apt install -y gcc autoconf automake libtool git make libltdl-dev pkg-config
+```
+
+Build and install library:
+```
+git clone https://github.com/pantoniou/libfyaml.git
+cd libfyaml
+./bootstrap.sh
+./configure
+make                # build libfyaml library
+sudo make install   # install library to system directories
+sudo ldconfig -v    # reload libraries
+```
