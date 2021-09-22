@@ -15,15 +15,17 @@ to compile a program with `libfyaml`. The Dockerfile installs all `libfyaml`
 dependencies, downloads the `libfyaml` source, compiles the library, and installs it. 
 The library is then available for linking with `gcc`.
 
-To use the Docker environment, first run
+To use the Docker environment, clone this repo and run a `docker build`:
 ```
-$ docker build -t libfyaml .
+git clone https://github.com/ThatcherC/libfyaml-example.git
+cd libfyaml-example
+docker build -t libfyaml .
 ```
 to set up the Docker instance. This step will install dependencies and build `libfyaml`.
 
 After that, the test program can built with `make` in the Docker environment. Run
 ```
-$ docker run -it libfyaml
+docker run -it libfyaml
 ```
 
 to enter the Docker env, then in the new shell, run
@@ -53,4 +55,11 @@ cd libfyaml
 make                # build libfyaml library
 sudo make install   # install library to system directories
 sudo ldconfig -v    # reload libraries
+```
+To verify successful installation, clone this repo and make and run the test program:
+```
+git clone https://github.com/ThatcherC/libfyaml-example.git
+cd libfyaml-example
+make
+./fy-version
 ```
