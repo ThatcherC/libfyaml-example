@@ -5,7 +5,6 @@ FROM debian:buster
 WORKDIR /app
 
 RUN apt update \
-#    && apt install -y gpsd libgps-dev build-essential git-all netcat \
     && apt install -y gcc autoconf automake libtool git make libltdl-dev pkg-config
 
 RUN git clone https://github.com/pantoniou/libfyaml.git \
